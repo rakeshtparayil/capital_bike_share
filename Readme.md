@@ -1,59 +1,47 @@
-# Capital Bike Share Project
+# Capital Bike Share Utilization Focus
 
 ## Project Overview
-Capital Bike is a bike-sharing initiative aimed at providing a convenient and eco-friendly transportation solution. This project focuses on analyzing historical ride data to uncover insights, trends, and patterns that can help improve service efficiency and user satisfaction.
+Capital Bike is a bike-sharing initiative aimed at providing a convenient and eco-friendly transportation solution. This project now prioritizes **bike utilization rates** to help the supply team optimize bike availability, reduce shortages, and ensure an efficient redistribution of bikes across stations.
 
-## Objectives
-- **Convert casual riders to members** by demonstrating cost savings and benefits.
-- **Encourage e-bike usage** by shifting 10% of classic bike casual users to e-bikes.
-- **Promote the Angel program** to maximize free ride credits and optimize bike redistribution.
+## Key Objectives
+- **Improve Bike Availability:** Identify critical stations with high demand but low bike availability.
+- **Optimize Redistribution:** Support the supply team by highlighting stations that frequently run out of bikes.
+- **Enhance Utilization Efficiency:** Reduce bike idleness and balance supply based on demand patterns.
+
+## Utilization Rate Analysis
+The dataset focuses on **station-level bike usage**, incorporating:
+- **Trip Count:** The number of rides that started from each station.
+- **Number of Bikes Available:** The count of available bikes at each station at a given time.
+- **Utilization Rate:** 
+  
+  \[
+  \text{Utilization Rate} = \frac{\text{Trip Count}}{\text{Number of Bikes Available}}
+  \]
+  
+  This metric indicates how frequently bikes are being used relative to their availability.
+
+### **Utilization Insights:**
+- **High Utilization (Red Markers):** Stations with no available bikes frequently. Redistribution priority.
+- **Moderate Utilization (Orange/Blue Markers):** Stations with a steady flow but still maintaining availability.
+- **Low Utilization (Green Markers):** Stations with surplus bikes that may need rebalancing.
 
 ## Data Structure
-The dataset used in this project consists of hourly ride data collected from Capital Bike's operations. The key columns in the dataset include:
-
-- `hour`: Hour of the day (0-23)
-- `season`: The season in which the ride was taken (1 = Winter, 2 = Spring, 3 = Summer, 4 = Fall)
-- `casual`: Number of casual (non-member) riders
-- `member`: Number of registered member riders
-- `total_rides`: Total number of rides (casual + member)
-- `temperature_2m_(°C)`: Temperature in degrees Celsius
-- `relativehumidity_2m_(%)`: Relative humidity percentage
-- `windspeed_10m_(km/h)`: Wind speed in kilometers per hour
-- `weathercode_(wmo_code)`: Weather condition code based on WMO standards
-
-## Data Transformation
-Several new columns were derived to enhance the analysis:
-- `weather_category`: Categorized the `weathercode_(wmo_code)` column into descriptive labels such as "Clear/Cloudy", "Fog Conditions", "Rain", etc.
-- `humidity_category`: Categorized humidity levels into "Low", "Moderate", "High", and "Very High" using predefined ranges.
-- `windspeed_category`: Divided wind speeds into categories such as "Calm", "Light Breeze", "Moderate Breeze", etc.
-
-## Exploratory Data Analysis (EDA)
-- Analyzing ride patterns for **casual vs. member users**.
-- Identifying how **classic bike users can shift to e-bikes**.
-- Evaluating the **cost differences** between casual and member rides.
-- Understanding ride durations and user behavior.
-
-## Problem Definition
-- Casual riders pay more per ride compared to members.
-- Classic bike casual riders have a potential shift to e-bikes.
-- The Angel program is **underutilized**, reducing potential cost savings.
-
-## Solution Framework
-- **CRM Campaign Strategy** to push casual riders toward membership.
-- **Incentives & Promotions** to encourage Angel program participation.
-- **Targeted Messaging** (email, push notifications, in-app prompts).
-- **A/B Testing & Performance Tracking** for effectiveness measurement.
+The dataset includes the following fields:
+- **start_station_name:** The name of the bike station.
+- **latitude, longitude:** Geolocation of each station.
+- **trip_count:** Total trips originating from the station.
+- **num_bikes_available:** Number of bikes available at the station.
+- **utilization_rate:** Demand indicator calculated as \(\frac{\text{trip count}}{\text{num_bikes_available}}\).
 
 ## Implementation
-- **Jupyter Notebook** for EDA and problem-solution modeling.
-- **Data Visualizations** to support insights.
-- **GitHub Documentation** for tracking progress and updates.
+- **Real-time Monitoring:** Track bike shortages and surplus using utilization metrics.
+- **Folium-Based Visualization:** Interactive maps color-coded by utilization.
+- **Actionable Insights for Supply Team:** Prioritize stations for redistribution efforts.
+- **GitHub Documentation:** Track progress and updates.
 
 ## Next Steps
-1. **Segmentation & Data Sync**: Pull casual rider data & identify high-potential users.
-2. **Campaign Content Development**: Design email templates, push notifications, and in-app pop-ups.
-3. **A/B Testing & Tracking**: Monitor conversion rates (casual → member, Angel program engagement).
-4. **Optimize & Scale**: Expand based on engagement and response rates.
+- **Automate Daily Reports:** Provide the supply team with daily updates on critical stations.
+- **Redistribution Strategy:** Optimize bike placements to minimize shortages.
+- **Expansion to Predictive Modeling:** Use machine learning to forecast demand spikes.
 
-This project will help drive user conversions, optimize ride efficiency, and improve overall revenue for the bike-sharing system.
-
+This utilization-focused approach ensures **better service efficiency**, **balanced supply distribution**, and **improved user experience** in the Capital Bike Share system.
