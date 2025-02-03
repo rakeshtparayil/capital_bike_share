@@ -13,10 +13,8 @@ The dataset focuses on **station-level bike usage**, incorporating:
 - **Trip Count:** The number of rides that started from each station.
 - **Number of Bikes Available:** The count of available bikes at each station at a given time.
 - **Utilization Rate:** 
-  
-  \[
-  \text{Utilization Rate} = \frac{\text{Trip Count}}{\text{Number of Bikes Available}}
-  \]
+  Utilization Rate =Trip Count/Number of Bikes Available
+
   
   This metric indicates how frequently bikes are being used relative to their availability.
 
