@@ -12,8 +12,9 @@ Capital Bike is a bike-sharing initiative aimed at providing a convenient and ec
 The dataset focuses on **station-level bike usage**, incorporating:
 - **Trip Count:** The number of rides that started from each station.
 - **Number of Bikes Available:** The count of available bikes at each station at a given time.
-- **Utilization Rate:** 
-  Utilization Rate =Trip Count/Number of Bikes Available
+- **Utilization Rate:**
+  
+Utilization Rate = {Trip Count}\{Number of Bikes Available}
 
   
   This metric indicates how frequently bikes are being used relative to their availability.
@@ -29,8 +30,11 @@ The dataset includes the following fields:
 - **latitude, longitude:** Geolocation of each station.
 - **trip_count:** Total trips originating from the station.
 - **num_bikes_available:** Number of bikes available at the station.
-- **utilization_rate:** Demand indicator calculated as \(\frac{\text{trip count}}{\text{num_bikes_available}}\).
-
+- **utilization_rate:** Demand indicator calculated as:
+  
+  
+  {trip count}\{num_bikes_available}
+ 
 ## Implementation
 - **Real-time Monitoring:** Track bike shortages and surplus using utilization metrics.
 - **Folium-Based Visualization:** Interactive maps color-coded by utilization.
